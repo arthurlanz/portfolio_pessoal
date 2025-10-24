@@ -25,7 +25,7 @@ export const skills = {
   ],
   tools: [
     { name: 'Figma', level: 50 },
-    { name: 'Git & GitHub', level: 60 },
+    { name: 'Git & GitHub', level: 80 },
     { name: 'VSCode', level: 70 }
   ]
 }
@@ -54,7 +54,7 @@ export const projects = [
   {
     id: 3,
     title: 'Join-Ville',
-    description: 'Site desenvolvido para o hackaton do IFC, com o objetivo reunir, avaliar e mostrar os eventos culturais da cidade de Joinville.',
+    description: 'Site desenvolvido para o hackaton do IFC, com o objetivo de reunir, avaliar e divulgar os eventos culturais da cidade de Joinville.',
     tech: ['Vue.js', 'JavaScript', 'CSS3', 'Django', 'SQLite', 'Figma', 'GitHub'],
     link: 'https://join-ville.fabricadesoftware.ifc.edu.br/',
     github: 'https://github.com/arthurlanz/Join-Ville',
