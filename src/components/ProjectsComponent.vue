@@ -16,7 +16,7 @@
               <img
                 v-if="project.img"
                 :src="project.img"
-                :alt="`Imagem do projeto ${project.image}`"
+                :alt="`Imagem do projeto ${project.img}`"
               />
             </div>
             <div class="project-placeholder">
