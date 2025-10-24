@@ -27,7 +27,7 @@
         <div class="about-image">
           <div class="image-wrapper">
             <div class="avatar">
-              AL
+              <img src="/src/assets/images/IMG_6846.jpg" alt="">
             </div>
             <div class="image-border"></div>
           </div>

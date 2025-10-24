@@ -12,7 +12,13 @@
           :class="['project-card', { 'reverse': index % 2 === 1 }]"
         >
           <div class="project-image">
-            <div class="image-overlay"></div>
+            <div class="image-overlay">
+              <img
+                v-if="project.img"
+                :src="project.img"
+                :alt="`Imagem do projeto ${project.image}`"
+              />
+            </div>
             <div class="project-placeholder">
               {{ getInitials(project.title) }}
             </div>
