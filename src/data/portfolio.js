@@ -39,7 +39,7 @@ export const projects = [
     link: 'https://sededomedo.vercel.app',
     github: 'https://github.com/arthurlanz/sededomedo',
     featured: true,
-    img: '/src/assets/images/sededomedo.png'
+    img: '/images/sededomedo.png'
   },
   {
     id: 2,
@@ -49,7 +49,7 @@ export const projects = [
     link: 'https://tutorial-tmdb-wheat-sigma.vercel.app/',
     github: 'https://github.com/arthurlanz/tutorial-tmdb',
     featured: true,
-    img: '/src/assets/images/tutorialtmdb.png'
+    img: '/images/tutorialtmdb.png'
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ export const projects = [
     link: 'https://join-ville.fabricadesoftware.ifc.edu.br/',
     github: 'https://github.com/arthurlanz/Join-Ville',
     featured: false,
-    img: '/src/assets/images/joinville.png'
+    img: '/images/joinville.png'
   }
 
 ]

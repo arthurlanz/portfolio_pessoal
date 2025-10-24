@@ -13,9 +13,10 @@
         >
           <div class="project-image">
             <div class="image-overlay">
+            
               <img
-                v-if="projects.img"
-                :src="projects.img"
+                v-if="project.img"
+                :src="project.img"
                 :alt="`Imagem do projeto ${project.img}`"
               />
             </div>
