@@ -1,23 +1,17 @@
 <template>
   <div id="app">
-    <router-view />
+    <RouterView />
   </div>
 </template>
 
-<style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<script setup>
+import { onMounted } from 'vue'
 
-html {
-  scroll-behavior: smooth;
-}
+onMounted(() => {
+  document.documentElement.style.scrollBehavior = 'smooth'
+})
+</script>
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+<style>
+@import '/src/assets/styles/global.css';
 </style>

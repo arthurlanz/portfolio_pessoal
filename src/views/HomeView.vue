@@ -1,30 +1,44 @@
 <template>
   <div class="home">
-    <Navbar />
-    <Hero />
-    <About />
-    <Projects />
-    <Skills />
-    <Education />
-    <Contact />
-    <Footer />
+    <InteractiveBackground />
+    <ParticlesBackground />
+    <NavbarComponent />
+    <HeroComponent />
+    <AboutComponent />
+    <ProjectsComponent />
+    <SkillsComponent />
+    <EducationComponent />
+    <ContactComponent />
+    <FooterComponent />
   </div>
 </template>
 
 <script setup>
-import Navbar from '../components/NavbarComponent.vue'
-import Hero from '../components/HeroComponent.vue'
-import About from '../components/AboutComponent.vue'
-import Projects from '../components/ProjectsComponent.vue'
-import Skills from '../components/SkillsComponent.vue'
-import Education from '../components/EducationComponent.vue'
-import Contact from '../components/ContactComponent.vue'
-import Footer from '../components/FooterComponent.vue'
+import { onMounted } from 'vue'
+import InteractiveBackground from '../components/InteractiveBackgroundComponent.vue'
+import ParticlesBackground from '../components/ParticlesBackgroundComponent.vue'
+import NavbarComponent from '../components/NavbarComponent.vue'
+import HeroComponent from '../components/HeroComponent.vue'
+import AboutComponent from '../components/AboutComponent.vue'
+import ProjectsComponent from '../components/ProjectsComponent.vue'
+import SkillsComponent from '../components/SkillsComponent.vue'
+import EducationComponent from '../components/EducationComponent.vue'
+import ContactComponent from '../components/ContactComponent.vue'
+import FooterComponent from '../components/FooterComponent.vue'
+import { useParallax } from '../composables/useParallax'
+import { useMouseTrail } from '../composables/useMouseTrail'
+
+useParallax()
+useMouseTrail()
+
+onMounted(() => {
+  document.body.style.overflow = 'auto'
+})
 </script>
 
 <style scoped>
 .home {
+  position: relative;
   min-height: 100vh;
-  background-color: var(--bg-primary);
 }
 </style>

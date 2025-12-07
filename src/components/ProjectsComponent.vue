@@ -1,159 +1,348 @@
 <template>
   <section id="projetos" class="projects">
     <div class="container">
-      <h2 class="section-title">
-        <span class="section-number">02.</span> Projetos em Destaque
-      </h2>
+      <div class="projects-header animate-on-scroll">
+        <div class="header-content">
+          <span class="section-label">Portfólio</span>
+          <h2 class="section-title">Projetos Selecionados</h2>
+          <p class="section-description">
+            Uma coleção dos meus trabalhos mais recentes e significativos
+          </p>
+        </div>
+        <div class="filter-tags">
+          <button
+            v-for="tag in filterTags"
+            :key="tag"
+            :class="['filter-tag', { active: activeFilter === tag }]"
+            @click="activeFilter = tag"
+          >
+            {{ tag }}
+          </button>
+        </div>
+      </div>
 
-      <div class="projects-list">
+      <div class="projects-grid">
         <div
-          v-for="(project, index) in projects"
+          v-for="(project, index) in filteredProjects"
           :key="project.id"
-          :class="['project-card', { 'reverse': index % 2 === 1 }]"
+          class="project-card animate-on-scroll"
+          :style="{ transitionDelay: `${index * 0.1}s` }"
         >
-          <div class="project-image">
-            <div class="image-overlay">
-            
+          <div class="project-number">{{ String(index + 1).padStart(2, '0') }}</div>
+
+          <div class="project-image-wrapper">
+            <div class="project-image">
               <img
                 v-if="project.img"
                 :src="project.img"
-                :alt="`Imagem do projeto ${project.img}`"
+                :alt="`Projeto ${project.title}`"
+                class="project-img"
               />
-            </div>
-            <div class="project-placeholder">
-              {{ getInitials(project.title) }}
+              <div v-else class="project-placeholder">
+                <Code2 :size="48" />
+              </div>
+              <div class="image-overlay"></div>
             </div>
           </div>
 
-          <div class="project-content">
-            <div class="project-label">Projeto em Destaque</div>
-            <h3 class="project-title">{{ project.title }}</h3>
-            <div class="project-description">
-              <p>{{ project.description }}</p>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-category">{{ project.category || 'Web Development' }}</span>
+              <span class="project-year">{{ project.year || '2024' }}</span>
             </div>
-            <div class="project-tech">
+
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+
+            <div class="project-tech-stack">
               <span
-                v-for="tech in project.tech"
+                v-for="tech in project.tech.slice(0, 4)"
                 :key="tech"
-                class="tech-tag"
+                class="tech-badge"
               >
                 {{ tech }}
               </span>
+              <span v-if="project.tech.length > 4" class="tech-more">
+                +{{ project.tech.length - 4 }}
+              </span>
             </div>
-            <div class="project-links">
-              <a
-                :href="project.github"
-                class="project-link"
-                aria-label="GitHub"
-              >
-                <Github :size="20" />
-              </a>
+
+            <div class="project-actions">
               <a
                 :href="project.link"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="project-link"
-                aria-label="Ver projeto"
+                class="project-btn project-btn-primary"
               >
-                <ExternalLink :size="20" />
+                <span>Ver Projeto</span>
+                <ArrowUpRight :size="16" />
+              </a>
+              <a
+                :href="project.github"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-btn project-btn-secondary"
+              >
+                <Github :size="16" />
               </a>
             </div>
           </div>
         </div>
+      </div>
+
+      <div v-if="filteredProjects.length === 0" class="no-projects">
+        <div class="no-projects-icon">
+          <Search :size="48" />
+        </div>
+        <p>Nenhum projeto encontrado para este filtro</p>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { Github, ExternalLink } from 'lucide-vue-next'
+import { ref, computed } from 'vue'
+import { Github, ArrowUpRight, Code2, Search } from 'lucide-vue-next'
 import { projects } from '../data/portfolio'
+import { useScrollAnimation } from '../composables/useScrollAnimation'
 
-const getInitials = (title) => {
-  return title.split(' ').map(word => word[0]).join('')
-}
+useScrollAnimation()
+
+const activeFilter = ref('Todos')
+const filterTags = ref(['Todos', 'Frontend', 'Backend', 'Fullstack'])
+
+const filteredProjects = computed(() => {
+  if (activeFilter.value === 'Todos') {
+    return projects
+  }
+  return projects.filter(project =>
+    project.category === activeFilter.value
+  )
+})
 </script>
 
 <style scoped>
 .projects {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 6rem 0;
+  padding: 8rem 0;
+  position: relative;
+}
+
+/* Header */
+.projects-header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.header-content {
+  margin-bottom: 3rem;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 4rem;
   color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.section-number {
-  color: var(--accent-primary);
-  font-family: 'Courier New', monospace;
+.section-description {
   font-size: 1.125rem;
-  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-.projects-list {
+/* Filter Tags */
+.filter-tags {
   display: flex;
-  flex-direction: column;
-  gap: 6rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.filter-tag {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-tag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.filter-tag:hover::before {
+  opacity: 1;
+}
+
+.filter-tag:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.filter-tag.active {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
 }
 
 .project-card {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.project-number {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-number {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  transform: scale(1.1) rotate(360deg);
+}
+
+/* Project Image */
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
 
 .project-image {
   position: relative;
-  aspect-ratio: 16 / 9;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 2px;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-tertiary);
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.08);
+}
+
+.project-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
 }
 
 .image-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(168, 85, 247, 0.2);
-  transition: var(--transition);
-  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 
 .project-card:hover .image-overlay {
-  background-color: transparent;
+  opacity: 0.9;
 }
 
-.project-placeholder {
-  position: absolute;
-  inset: 0;
+/* Project Info */
+.project-info {
+  padding: 2rem;
+}
+
+.project-meta {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-  font-weight: 700;
-  color: var(--bg-tertiary);
-  z-index: 1;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.project-content {
-  position: relative;
+.project-category {
+  color: var(--text-primary);
 }
 
-.project-label {
-  color: var(--accent-primary);
-  font-size: 0.875rem;
-  font-family: 'Courier New', monospace;
-  margin-bottom: 0.5rem;
+.project-year {
+  color: var(--text-tertiary);
+  padding-left: 1rem;
+  border-left: 1px solid var(--border-color);
 }
 
 .project-title {
@@ -161,94 +350,154 @@ const getInitials = (title) => {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1rem;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+  background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .project-description {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 2px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.project-description p {
+  font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-.project-tech {
+/* Tech Stack */
+.project-tech-stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.tech-tag {
-  font-size: 0.875rem;
+.tech-badge {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--text-tertiary);
-  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
 }
 
-.project-links {
+.project-card:hover .tech-badge {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+.tech-more {
+  padding: 0.5rem 1rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Project Actions */
+.project-actions {
   display: flex;
   gap: 1rem;
 }
 
-.project-link {
-  color: var(--text-secondary);
-  transition: var(--transition);
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.project-link:hover {
-  color: var(--accent-primary);
+.project-btn-primary {
+  flex: 1;
+  justify-content: center;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: 1px solid var(--text-primary);
 }
 
-/* Tablet e Desktop */
+.project-btn-primary:hover {
+  background: transparent;
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
+.project-btn-secondary {
+  padding: 0.875rem;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.project-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+/* No Projects */
+.no-projects {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-tertiary);
+}
+
+.no-projects-icon {
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* Responsive */
 @media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .project-image-wrapper {
+    height: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
   .section-title {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   .project-card {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
 
-  .project-image {
-    grid-column: 1 / 8;
-    grid-row: 1;
+  .project-card:nth-child(even) .project-image-wrapper {
+    order: 2;
   }
 
-  .project-content {
-    grid-column: 7 / 13;
-    grid-row: 1;
-    text-align: right;
-    z-index: 10;
+  .project-card:nth-child(even) .project-info {
+    order: 1;
   }
 
-  .project-card.reverse .project-image {
-    grid-column: 6 / 13;
+  .project-image-wrapper {
+    height: 100%;
+    min-height: 500px;
   }
 
-  .project-card.reverse .project-content {
-    grid-column: 1 / 6;
-    text-align: left;
-  }
-
-  .project-tech {
-    justify-content: flex-end;
-  }
-
-  .project-card.reverse .project-tech {
-    justify-content: flex-start;
-  }
-
-  .project-links {
-    justify-content: flex-end;
-  }
-
-  .project-card.reverse .project-links {
-    justify-content: flex-start;
+  .project-info {
+    padding: 3rem;
   }
 
   .project-title {
@@ -256,22 +505,6 @@ const getInitials = (title) => {
   }
 }
 
-/* Desktop grande */
-@media (min-width: 1024px) {
-  .section-title {
-    font-size: 3.5rem;
-  }
-
-  .project-title {
-    font-size: 2.25rem;
-  }
-
-  .project-placeholder {
-    font-size: 6rem;
-  }
-}
-
-/* Mobile */
 @media (max-width: 767px) {
   .projects {
     padding: 4rem 0;
@@ -279,22 +512,30 @@ const getInitials = (title) => {
 
   .section-title {
     font-size: 2rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin-bottom: 3rem;
   }
 
-  .projects-list {
-    gap: 4rem;
+  .section-description {
+    font-size: 1rem;
+  }
+
+  .project-image-wrapper {
+    height: 250px;
+  }
+
+  .project-info {
+    padding: 1.5rem;
   }
 
   .project-title {
     font-size: 1.5rem;
   }
 
-  .project-placeholder {
-    font-size: 3rem;
+  .project-actions {
+    flex-direction: column;
+  }
+
+  .project-btn-secondary {
+    display: none;
   }
 }
 </style>
