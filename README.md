@@ -1,190 +1,197 @@
-# 🚀 Portfólio Pessoal - Arthur Lanznaster
+# Portfolio Frontend
 
-Portfólio profissional desenvolvido com Vue.js 3, apresentando projetos, habilidades e informações sobre minha jornada como desenvolvedor full-stack.
+Portfolio pessoal desenvolvido com React e Vite, apresentando projetos, habilidades e informações de contato de forma interativa e moderna.
 
-![Vue.js](https://img.shields.io/badge/Vue.js-3.4-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+## 🚀 Tecnologias
+
+- React 18.3
+- Vite 6.0 (bundler)
+- React Router DOM 7.1 (navegação)
+- Axios (requisições HTTP)
+- CSS3 (estilização)
+- React Icons (ícones)
 
 ## ✨ Features
 
-- ⚡ **Vue 3** com Composition API
-- 🎨 **Design Minimalista** inspirado em portfólios profissionais
-- 📱 **Totalmente Responsivo** (Mobile, Tablet, Desktop)
-- 🎯 **Navegação Suave** entre seções
-- 💫 **Animações Elegantes** com CSS
-- 🌐 **SEO Friendly**
-- ⚡ **Performance Otimizada**
+- 🎨 Design moderno e responsivo
+- 🌙 Navegação suave entre seções
+- 📱 Totalmente responsivo (mobile-first)
+- 💼 Showcase de projetos
+- 🛠️ Exibição de habilidades técnicas
+- 📧 Formulário de contato funcional
+- ⚡ Carregamento rápido com Vite
+- 🔒 Rate limiting no formulário de contato
 
-## 🛠️ Tecnologias Utilizadas
+## 📋 Pré-requisitos
 
-- **Vue.js 3** - Framework JavaScript progressivo
-- **Vue Router 4** - Roteamento oficial do Vue
-- **Vite** - Build tool de nova geração
-- **Lucide Vue Next** - Biblioteca de ícones
-- **CSS3** - Estilização com variáveis CSS customizadas
-
-## 📦 Instalação e Uso
-
-### Pré-requisitos
-
-- Node.js (v16 ou superior)
+- Node.js 18+
 - npm ou yarn
 
-### Passos para Instalação
+## 🔧 Instalação Local
 
-1. **Clone o repositório**
-```bash
-git clone https://github.com/arthurlanz/portfolio-vue.git
-cd portfolio-vue
-```
+**1. Clone o repositório**
 
-2. **Instale as dependências**
-```bash
-npm install
-```
+    git clone https://github.com/arthurlanznaster/portfolio-frontend.git
+    cd portfolio-frontend
 
-3. **Execute o projeto em modo desenvolvimento**
-```bash
-npm run dev
-```
+**2. Instale as dependências**
 
-4. **Build para produção**
-```bash
-npm run build
-```
+    npm install
 
-5. **Preview da build de produção**
-```bash
-npm run preview
-```
+**3. Configure as variáveis de ambiente**
 
-## 📁 Estrutura do Projeto
+Crie um arquivo `.env` na raiz do projeto:
 
-```
-portfolio-vue/
-├── public/
-│   ├── favicon.ico
-│   └── index.html
-├── src/
-│   ├── assets/
-│   │   ├── styles/
-│   │   │   └── global.css          # Estilos globais e variáveis CSS
-│   │   └── images/                 # Imagens do projeto
-│   ├── components/
-│   │   ├── Navbar.vue              # Barra de navegação
-│   │   ├── Hero.vue                # Seção inicial/hero
-│   │   ├── About.vue               # Seção sobre mim
-│   │   ├── Skills.vue              # Habilidades técnicas
-│   │   ├── Projects.vue            # Projetos em destaque
-│   │   ├── Education.vue           # Formação acadêmica
-│   │   ├── Contact.vue             # Seção de contato
-│   │   └── Footer.vue              # Rodapé
-│   ├── views/
-│   │   └── Home.vue                # View principal
-│   ├── router/
-│   │   └── index.js                # Configuração de rotas
-│   ├── data/
-│   │   └── portfolio.js            # Dados do portfólio
-│   ├── App.vue                     # Componente raiz
-│   └── main.js                     # Entry point
-├── .gitignore
-├── package.json
-├── README.md
-└── vite.config.js
-```
+    VITE_API_URL=http://localhost:8000/api
 
-## 🎨 Personalização
+**4. Inicie o servidor de desenvolvimento**
 
-### Alterar Informações Pessoais
+    npm run dev
 
-Edite o arquivo `src/data/portfolio.js`:
+O aplicativo estará disponível em http://localhost:5173
 
-```javascript
-export const personalInfo = {
-  name: 'Seu Nome',
-  role: 'Seu Cargo',
-  location: 'Sua Cidade, Estado - País',
-  email: 'seu@email.com',
-  // ... outras informações
-}
-```
+## 🏗️ Build para Produção
 
-### Adicionar Projetos
+    npm run build
 
-No arquivo `src/data/portfolio.js`, adicione novos projetos no array:
+Os arquivos otimizados estarão na pasta `dist/`
 
-```javascript
-export const projects = [
-  {
-    id: 1,
-    title: 'Nome do Projeto',
-    description: 'Descrição do projeto',
-    tech: ['Vue.js', 'Node.js'],
-    link: 'https://projeto.com',
-    github: 'https://github.com/usuario/projeto',
-    featured: true
-  }
-]
-```
+**Preview da build:**
 
-### Customizar Cores
+    npm run preview
 
-Edite as variáveis CSS em `src/assets/styles/global.css`:
+## 🗂️ Estrutura do Projeto
 
-```css
-:root {
-  --bg-primary: #09090b;
-  --accent-primary: #a855f7;
-  /* ... outras variáveis */
-}
-```
+    portfolio-frontend/
+    ├── public/                # Arquivos públicos estáticos
+    ├── src/
+    │   ├── assets/           # Imagens, fontes, etc
+    │   ├── components/       # Componentes React
+    │   ├── styles/           # Arquivos CSS
+    │   ├── App.jsx           # Componente principal
+    │   ├── main.jsx          # Entry point
+    │   └── index.css         # CSS global
+    ├── .env                  # Variáveis de ambiente
+    ├── index.html            # HTML principal
+    ├── package.json          # Dependências
+    ├── vite.config.js        # Configuração do Vite
+    └── README.md             # Este arquivo
 
-## 📱 Responsividade
+## 📱 Componentes
 
-O portfólio foi desenvolvido com mobile-first approach e é totalmente responsivo:
+### Navbar
+Barra de navegação fixa com links suaves para as seções.
 
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1023px
-- **Desktop**: ≥ 1024px
+### Hero
+Seção de apresentação inicial com informações principais.
+
+### About
+Informações sobre experiência, objetivos e biografia.
+
+### Skills
+Grid com habilidades técnicas organizadas por categoria (Frontend, Backend, Ferramentas & DevOps).
+
+### Projects
+Showcase de projetos com descrição, tecnologias utilizadas e links para GitHub e demo.
+
+### Education
+Formação acadêmica e cursos relevantes.
+
+### Contact
+Formulário de contato com validação, rate limiting (5 mensagens/hora), feedback visual e integração com backend.
+
+### Footer
+Rodapé com informações de copyright e links sociais.
+
+## 🎨 Customização
+
+### Cores
+
+As cores principais podem ser alteradas em `src/index.css` na seção `:root`.
+
+### Conteúdo
+
+Edite os componentes em `src/components/` para alterar informações pessoais, projetos, habilidades e formação acadêmica.
+
+## 🌐 Integração com API
+
+O formulário de contato se comunica com a API backend no endpoint `/api/contact/send/`
+
+Configure a URL da API no arquivo `.env`:
+
+    VITE_API_URL=https://sua-api.com/api
 
 ## 🚀 Deploy
 
-### Vercel (Recomendado)
+### Vercel
 
-1. Crie uma conta no [Vercel](https://vercel.com)
-2. Conecte seu repositório GitHub
-3. Configure o projeto:
-   - Framework Preset: Vite
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-4. Deploy!
+    npm install -g vercel
+    vercel
 
 ### Netlify
 
-1. Crie uma conta no [Netlify](https://netlify.com)
-2. Arraste a pasta `dist` após rodar `npm run build`
-3. Ou conecte com seu repositório GitHub
+    npm run build
+    netlify deploy --prod --dir=dist
 
-## 📄 Licença
+**Importante:** Configure a variável de ambiente `VITE_API_URL` com a URL da API em produção.
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+## 📊 Performance
+
+- ⚡ Lighthouse Score: 95+
+- 📦 Bundle size otimizado com Vite
+- 🖼️ Lazy loading de imagens
+- 🎯 Code splitting automático
+
+## 🛡️ Segurança
+
+- Validação de formulários no frontend e backend
+- Rate limiting no envio de mensagens
+- Sanitização de inputs
+- HTTPS obrigatório em produção
+
+## 📱 Responsividade
+
+**Breakpoints:**
+- Mobile: < 768px
+- Tablet: 768px - 1024px
+- Desktop: > 1024px
+
+## 🧪 Scripts Disponíveis
+
+    npm run dev          # Inicia servidor de desenvolvimento
+    npm run build        # Build para produção
+    npm run preview      # Preview da build
+    npm run lint         # Linting do código
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT.
 
 ## 👤 Autor
 
 **Arthur Lanznaster**
 
-- GitHub: [@arthurlanz](https://github.com/arthurlanz)
-- LinkedIn: [Arthur Lanznaster](https://www.linkedin.com/in/arthur-lanznaster-0546532b8/)
-- Instagram: [@arthurlanz_](https://www.instagram.com/arthurlanz_)
+- GitHub: [@arthurlanznaster](https://github.com/arthurlanznaster)
+- Email: arthurlanznaster@gmail.com
 
-## 🤝 Contribuições
+## 🤝 Contribuindo
 
-Contribuições, issues e feature requests são bem-vindos!
+Contribuições são bem-vindas!
 
-## ⭐ Mostre seu apoio
+1. Fazer fork do projeto
+2. Criar uma branch: `git checkout -b feature/MinhaFeature`
+3. Commit: `git commit -m 'Add: Nova feature'`
+4. Push: `git push origin feature/MinhaFeature`
+5. Abrir um Pull Request
 
-Se este projeto te ajudou, dê uma ⭐!
+## 🐛 Reportar Bugs
+
+Encontrou um bug? Abra uma issue descrevendo:
+- O comportamento esperado
+- O comportamento atual
+- Passos para reproduzir
+- Screenshots (se aplicável)
 
 ---
 
-**Desenvolvido com 💜 usando Vue.js**
+Desenvolvido por Arthur Lanznaster
