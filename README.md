@@ -171,7 +171,7 @@ Este projeto está sob a licença MIT.
 
 **Arthur Lanznaster**
 
-- GitHub: [@arthurlanznaster](https://github.com/arthurlanznaster)
+- GitHub: [@arthurlanznaster](https://github.com/arthurlanz)
 - Email: arthurlanznaster@gmail.com
 
 ## 🤝 Contribuindo
