@@ -55,7 +55,7 @@ export const projects = [
     github: 'https://github.com/Empresa-MetFlix/Metflix-frontend',
     link: 'https://metflix-frontend-pi.vercel.app/',
     featured: true,
-    img: '/images/metflix.png'
+    img: '/images/metlix.png'
   },
   {
     id: 3,
@@ -77,7 +77,7 @@ export const projects = [
     year: '2025',
     tech: ['Vue.js', 'JavaScript', 'CSS3', 'API REST', 'Axios'],
     github: 'https://github.com/Artelie-PI/Artelie-FrontEnd',
-    link: '#',
+    link: 'https://artelieweb.web.app/',
     featured: false,
     img: '/images/artelie.png'
   },
