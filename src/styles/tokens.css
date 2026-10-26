@@ -1,0 +1,64 @@
+/* Tokens do portfólio. Tudo que muda entre tema claro e escuro está aqui. */
+:root {
+  --paper: #eceff3;
+  --surface: #f7f8fa;
+  --ink: #0f1f33;
+  --ink-soft: #44546a;
+  --line: #cbd3de;
+  --accent: #2845d6;
+  --accent-ink: #ffffff;
+  --accent-wash: #dfe5fb;
+  --focus: #2845d6;
+
+  --heat-0: #dde3ec;
+  --heat-1: #c3cefa;
+  --heat-2: #8fa3f3;
+  --heat-3: #5169e4;
+  --heat-4: #2845d6;
+
+  --ok: #17603c;
+  --danger: #a3261d;
+
+  --font: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-code: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --step--1: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
+  --step-2: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --step-3: clamp(2rem, 1.5rem + 2.2vw, 3rem);
+  --step-4: clamp(2.6rem, 1.6rem + 4.6vw, 5.2rem);
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: clamp(4rem, 3rem + 5vw, 7.5rem);
+
+  --gutter: clamp(1rem, 0.5rem + 3vw, 2.5rem);
+  --page: 1180px;
+  --radius: 12px;
+  --radius-sm: 6px;
+}
+
+:root[data-theme='dark'] {
+  --paper: #0b1526;
+  --surface: #111f36;
+  --ink: #e6ecf5;
+  --ink-soft: #9aa9bf;
+  --line: #22324d;
+  --accent: #8fa2ff;
+  --accent-ink: #0b1526;
+  --accent-wash: #1a2a52;
+  --focus: #b4c0ff;
+
+  --heat-0: #16233a;
+  --heat-1: #243c7c;
+  --heat-2: #3a56c4;
+  --heat-3: #6b82f2;
+  --heat-4: #b4c0ff;
+
+  --ok: #6fd3a0;
+  --danger: #ff9a92;
+  color-scheme: dark;
+}

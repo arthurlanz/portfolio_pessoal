@@ -1,17 +1,26 @@
-<template>
-  <div id="app">
-    <RouterView />
-  </div>
-</template>
-
 <script setup>
-import { onMounted } from 'vue'
-
-onMounted(() => {
-  document.documentElement.style.scrollBehavior = 'smooth'
-})
+import SiteHeader from './components/SiteHeader.vue'
+import HeroSection from './components/HeroSection.vue'
+import AboutSection from './components/AboutSection.vue'
+import ProjectsSection from './components/ProjectsSection.vue'
+import ClientWorkSection from './components/ClientWorkSection.vue'
+import StackSection from './components/StackSection.vue'
+import JourneySection from './components/JourneySection.vue'
+import ContactSection from './components/ContactSection.vue'
+import SiteFooter from './components/SiteFooter.vue'
 </script>
 
-<style>
-@import '/src/assets/styles/global.css';
-</style>
+<template>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <SiteHeader />
+  <main id="conteudo">
+    <HeroSection />
+    <AboutSection />
+    <ProjectsSection />
+    <ClientWorkSection />
+    <StackSection />
+    <JourneySection />
+    <ContactSection />
+  </main>
+  <SiteFooter />
+</template>
