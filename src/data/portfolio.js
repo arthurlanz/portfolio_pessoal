@@ -1,286 +1,196 @@
-export const personalInfo = {
+// Conteúdo do portfólio. Números de commits, linguagens e atividade não ficam aqui:
+// vêm da API do GitHub, pelo backend (veja src/composables/useGithub.js).
+
+export const profile = {
   name: 'Arthur Lanznaster',
-  role: 'Desenvolvedor Frontend',
-  location: 'Joinville, Santa Catarina - Brasil',
+  headline: 'Faço sistemas web completos, do banco de dados à tela.',
+  lead: 'Sou o Arthur, dev fullstack em Joinville. Trabalho com Vue 3 e Django REST e termino o técnico em Informática para Internet no IFC em 2026. Procuro estágio ou vaga júnior.',
   email: 'arthurlanznaster@gmail.com',
-  description: 'Estudante do 2º ano de Informática para Internet no IFC Araquari. Especializado em Vue.js, desenvolvimento frontend e backend com Python/Django.',
-  social: {
-    github: 'https://github.com/arthurlanz',
-    linkedin: 'https://www.linkedin.com/in/arthur-lanznaster-0546532b8/',
-    instagram: 'https://www.instagram.com/arthurlanz_'
-  }
+  github: 'https://github.com/arthurlanz',
+  githubUser: 'arthurlanz',
+  linkedin: 'https://www.linkedin.com/in/arthur-lanznaster-0546532b8',
+  instagram: 'https://www.instagram.com/arthurlanz_/',
 }
 
-export const skills = {
-  frontend: [
-    { name: 'HTML5', level: 90 },
-    { name: 'CSS3', level: 85 },
-    { name: 'JavaScript', level: 80 },
-    { name: 'Vue.js', level: 85 }
-  ],
-  backend: [
-    { name: 'Python', level: 70 },
-    { name: 'Django', level: 65 },
-    { name: 'Node.js', level: 60 },
-    { name: 'MySQL', level: 65 }
-  ],
-  tools: [
-    { name: 'Git & GitHub', level: 85 },
-    { name: 'Figma', level: 65 },
-    { name: 'VSCode', level: 90 },
-    { name: 'Vite', level: 75 }
-  ]
-}
+export const about = [
+  'Entrei no técnico em Informática para Internet, no IFC Campus Araquari, em 2024 e termino em 2026. Prefiro projetos que chegam ao ar: quase todos os que aparecem aqui têm endereço público.',
+  'Em equipe, pego tarefas do Kanban, abro issues e pull requests e reviso o código dos colegas. No Fluxo, cuidei do quadro Kanban e apresentei essa parte aos jurados do hackathon.',
+  'Procuro minha primeira vaga: estágio ou júnior em desenvolvimento web, do frontend ao backend.',
+]
 
 export const projects = [
   {
-    id: 1,
-    title: 'Join-Ville',
-    description: 'Plataforma web desenvolvida para o Hackaton do IFC com o objetivo de reunir, avaliar e divulgar eventos culturais de Joinville. Sistema completo com cadastro de empresas via CNPJ, gerenciamento de eventos e filtros avançados.',
-    category: 'Fullstack',
-    year: '2025',
-    tech: ['Vue.js', 'JavaScript', 'CSS3', 'Django', 'Python', 'SQLite', 'Figma'],
-    github: 'https://github.com/Equipe-Hackaton/Join-ville',
-    link: 'https://join-ville-dusky.vercel.app/',
-    featured: true,
-    img: '/images/joinville.png'
-  },
-  {
-    id: 2,
-    title: 'MetFlix',
-    description: 'Plataforma de streaming completa desenvolvida do zero. Sistema de autenticação, backend robusto e frontend moderno. Projeto comercial com gestão de usuários, catálogo de filmes e interface responsiva.',
-    category: 'Fullstack',
-    year: '2025',
-    tech: ['Vue.js', 'Node.js', 'Express', 'MySQL', 'JWT', 'API REST'],
-    github: 'https://github.com/Empresa-MetFlix/Metflix-frontend',
-    link: 'https://metflix-frontend-pi.vercel.app/',
-    featured: true,
-    img: '/images/metlix.png'
-  },
-  {
-    id: 3,
-    title: 'Sede do Medo',
-    description: 'Plataforma de streaming especializada em filmes de terror desenvolvida com Vue.js e API TMDB. Interface moderna e responsiva com sistema de busca avançada, filtros por gênero, avaliações e detalhes completos dos filmes.',
-    category: 'Frontend',
-    year: '2025',
-    tech: ['Vue.js', 'JavaScript', 'CSS3', 'Axios', 'TMDB API', 'Vite'],
-    github: 'https://github.com/SEDEDOMEDO/ProjetoFinal-SededoMedo',
-    link: 'https://sededomedo.vercel.app',
-    featured: true,
-    img: '/images/sededomedo.png'
-  },
-  {
-    id: 4,
-    title: 'Artelie',
-    description: 'Projeto comercial de refatoração completa do frontend. Modernização da interface, melhoria da experiência do usuário, implementação de novas funcionalidades e integração com backend existente.',
-    category: 'Frontend',
-    year: '2025',
-    tech: ['Vue.js', 'JavaScript', 'CSS3', 'API REST', 'Axios'],
-    github: 'https://github.com/Artelie-PI/Artelie-FrontEnd',
-    link: 'https://artelieweb.web.app/',
-    featured: false,
-    img: '/images/artelie.png'
-  },
-  {
-    id: 5,
-    title: 'Tutorial TMDB',
-    description: 'Projeto educacional progressivo para aprendizado de APIs e integração com serviços externos. Implementação completa de busca, exibição e filtros usando a API The Movie Database.',
-    category: 'Frontend',
-    year: '2025',
-    tech: ['Vue.js', 'Axios', 'TMDB API', 'Vite', 'CSS3'],
-    github: 'https://github.com/arthurlanz/tutorial-tmdb',
-    link: 'https://tutorial-tmdb-wheat-sigma.vercel.app/',
-    featured: false,
-    img: '/images/tutorialtmdb.png'
-  },
-  {
-    id: 6,
-    title: 'Nutriverso',
-    description: 'Primeiro projeto desenvolvido em grupo focado em saúde e nutrição. Plataforma web com informações nutricionais, calculadora de IMC e dicas de alimentação saudável.',
-    category: 'Frontend',
-    year: '2024',
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
-    github: 'https://github.com/arthurlanz/nutriverso_pi',
-    link: '#',
-    featured: false,
-    img: '/images/nutriverso.png'
-  }
-]
-
-export const education = {
-  institution: 'Instituto Federal Catarinense',
-  campus: 'Campus Araquari',
-  course: 'Técnico em Informática para Internet',
-  status: 'Cursando - 2º Ano',
-  period: '2024 - 2026',
-  description: 'Curso técnico integrado ao ensino médio com foco em desenvolvimento web full-stack, programação, banco de dados, design de interfaces e infraestrutura de redes. Experiência prática através de projetos reais, metodologias ágeis e participação em hackathons e competições.'
-}
-
-export const experience = [
-  {
-    id: 1,
-    title: 'Desenvolvedor Frontend Freelancer',
-    company: 'Artelie',
-    period: '2025',
-    description: 'Refatoração completa do frontend, modernizando a interface e implementando novas funcionalidades com foco em experiência do usuário.',
-    technologies: ['Vue.js', 'CSS3', 'API Integration']
-  },
-  {
-    id: 2,
-    title: 'Desenvolvedor Fullstack Freelancer',
-    company: 'MetFlix',
-    period: '2025',
-    description: 'Desenvolvimento completo de plataforma de streaming, incluindo backend com sistema de autenticação JWT e frontend responsivo moderno.',
-    technologies: ['Vue.js', 'Node.js', 'MySQL', 'JWT']
-  },
-  {
-    id: 3,
-    title: 'Desenvolvedor Frontend',
-    company: 'Equipe Hackaton IFC',
-    period: '2025',
-    description: 'Desenvolvimento do frontend da plataforma Join-Ville para o Hackaton do IFC Araquari, integrando com backend Django.',
-    technologies: ['Vue.js', 'Django Integration', 'Figma']
-  }
-]
-
-export const githubStats = {
-  // ========== CONTA PRINCIPAL (arthurlanz) ==========
-  mainAccount: {
-    username: 'arthurlanz',
-    totalContributions: 225, // Feb 27, 2024 - Present
-    currentStreak: 1,
-    longestStreak: 5, // Sep 18 - Sep 22
-    repositories: 8,
-    stars: 0,
-    followers: 11 // Many Friends badge
-  },
-
-  // ========== CONTAS ADICIONAIS (Projetos Comerciais) ==========
-  additionalAccounts: [
-    {
-      username: 'MuriloDaCruz',
-      project: 'Artelie-FrontEnd',
-      role: 'Frontend Developer',
-      commits: 17, // Estimativa baseada em refatoração completa
-      description: 'Refatoração completa do frontend'
-    },
-    {
-      username: 'deivid1801',
-      projects: ['Metflix-frontend', 'Metflix-backend'],
-      role: 'Fullstack Developer',
-      commits: 29, // Frontend + Backend combinados
-      description: 'Desenvolvimento completo fullstack'
-    }
-  ],
-
-  // ========== ESTATÍSTICAS TOTAIS COMBINADAS ==========
-  totalStats: {
-    allCommits: 271,
-    allRepositories: 11,
-    totalProjects: 5,
-    yearsActive: 1,
-    averageCommitsPerMonth: 43,
-    mostProductiveMonth: 'Setembro 2025'
-  },
-  projects: [
-    {
-      name: 'Sede do Medo',
-      account: 'arthurlanz',
-      commits: 45,
-      lines: 3200,
-      tech: ['Vue.js', 'TMDB API', 'Axios'],
-      status: 'Production',
-      url: 'https://sededomedo.vercel.app'
-    },
-    {
-      name: 'Join-Ville',
-      account: 'arthurlanz',
-      commits: 38,
-      lines: 2800,
-      tech: ['Vue.js', 'Django', 'SQLite'],
-      status: 'Production',
-      url: 'https://join-ville-dusky.vercel.app/'
-    },
-    {
-      name: 'MetFlix Frontend',
-      account: 'deivid1801',
-      commits: 82,
-      lines: 4500,
-      tech: ['Vue.js', 'Node.js', 'JWT'],
-      status: 'Production',
-      url: 'https://metflix-frontend-pi.vercel.app/'
-    },
-    {
-      name: 'MetFlix Backend',
-      account: 'deivid1801',
-      commits: 63,
-      lines: 3200,
-      tech: ['Node.js', 'Express', 'MySQL'],
-      status: 'Production',
-      url: 'https://metflix-backend-f44c.onrender.com/'
-    },
-    {
-      name: 'Artelie FrontEnd',
-      account: 'MuriloDaCruz',
-      commits: 65,
-      lines: 3800,
-      tech: ['Vue.js', 'CSS3', 'API Integration'],
-      status: 'Commercial',
-      url: 'https://artelieweb.web.app/'
-    },
-    {
-      name: 'Tutorial TMDB',
-      account: 'arthurlanz',
-      commits: 28,
-      lines: 1800,
-      tech: ['Vue.js', 'Vite', 'TMDB API'],
-      status: 'Educational',
-      url: 'https://tutorial-tmdb-wheat-sigma.vercel.app/'
-    },
-    {
-      name: 'Nutriverso',
-      account: 'arthurlanz',
-      commits: 22,
-      lines: 1500,
-      tech: ['HTML5', 'CSS3', 'JavaScript'],
-      status: 'School Project',
-      url: 'GitHub'
-    }
-  ],
-
-  achievements: {
-    githubTrophies: [
-      { name: 'High Committer', level: 'A', description: '225+ commits' },
-      { name: 'High Issuer', level: 'A', description: 'Criou múltiplas issues' },
-      { name: 'High Puller', level: 'A', description: 'Múltiplos Pull Requests' },
-      { name: 'Many Friends', level: 'B', description: '112+ followers' },
-      { name: 'Junior Dev', level: 'B', description: 'Desenvolvedor Júnior ativo' },
-      { name: 'First Repository', level: 'C', description: 'Primeiro repositório criado' }
+    id: 'pires',
+    name: 'Pires Panificadora',
+    year: 2026,
+    kind: 'TCC',
+    summary:
+      'Sistema de pré-pedidos da cantina do IFC. O aluno reserva os itens antes do intervalo, paga online e retira com um QR Code. A administração controla estoque, promoções e relatórios.',
+    role: 'Desenvolvimento fullstack: a API em Django e o aplicativo web instalável (PWA) em Vue.',
+    highlights: [
+      'Pagamento pelo Mercado Pago e login com Google',
+      'Retirada por QR Code e fluxo de estados do pedido',
+      'Baixa automática de estoque, notificações e relatório de vendas',
     ],
-    milestones: [
-      '🎯 250+ commits totais em projetos reais',
-      '🚀 5 projetos em produção (deploy online)',
-      '💼 3 projetos comerciais/freelance',
-      '🏆 Participação em Hackaton IFC 2025',
-      '👥 Trabalho colaborativo em equipes',
-      '🎓 Projetos educacionais + comerciais'
-    ]
+    stack: ['Vue 3', 'Pinia', 'PWA', 'Django REST', 'PostgreSQL', 'Cloudinary'],
+    live: 'https://frontend-pires.vercel.app',
+    repos: [
+      { label: 'Frontend', name: 'Panificadora-Pires/frontend-pires' },
+      { label: 'Backend', name: 'Panificadora-Pires/backend-pires' },
+    ],
+    docs: 'https://github.com/Panificadora-Pires/.github',
   },
-
-  // ========== MÉTRICAS DE CÓDIGO ==========
-  codeMetrics: {
-    totalLinesWritten: 77649
+  {
+    id: 'fluxo',
+    name: 'Fluxo',
+    year: 2026,
+    kind: 'Hackathon',
+    summary:
+      'Plataforma de gestão de projetos em equipe, com quadro Kanban, chat, chamadas em tempo real, pastas de arquivos e brainstorm. Desenvolvida pela equipe DreamTeam-2k26.',
+    role: 'Foco no frontend e no quadro Kanban, com contribuições no backend para tarefas, anexos e fotos de perfil.',
+    highlights: [
+      'Kanban com responsável, comentários e anexos em cada tarefa',
+      'Tarefas puxadas das issues do GitHub e entregues por pull request',
+      'Apresentação do Kanban aos jurados',
+    ],
+    stack: ['Vue 3', 'Pinia', 'Django REST', 'Channels (WebSocket)', 'JWT'],
+    live: 'https://fluxo-beige-three.vercel.app',
+    repos: [
+      { label: 'Frontend', name: 'DreamTeam-2k26/frontend' },
+      { label: 'Backend', name: 'DreamTeam-2k26/backend' },
+    ],
   },
+  {
+    id: 'brookie',
+    name: 'Brookiê',
+    year: 2026,
+    kind: 'Projeto Integrador',
+    summary:
+      'Loja online de cookies e brownies artesanais, pensada primeiro para o celular. A API tem catálogo, kits, pedidos, pagamentos e estoque.',
+    role: 'Fiz a maior parte do frontend e do backend, do envio de fotos ao deploy.',
+    highlights: [
+      'Upload de foto de perfil com Cloudinary',
+      'Correção de uma falha de escalonamento de privilégios na API de usuários',
+      'Deploy do backend no Render, com PostgreSQL',
+    ],
+    stack: ['Vue 3', 'Pinia', 'PWA', 'Django REST', 'PostgreSQL', 'Cloudinary'],
+    live: 'https://brookie-frontend.vercel.app/',
+    repos: [
+      { label: 'Frontend', name: 'EquipePI-3info2/frontend' },
+      { label: 'Backend', name: 'EquipePI-3info2/backend' },
+    ],
+  },
+  {
+    id: 'joinville',
+    name: 'Join-Ville',
+    year: 2025,
+    kind: 'Hackathon',
+    summary:
+      'Agenda dos eventos de Joinville, por categoria, data e avaliação. Só empresas com CNPJ válido cadastram eventos, e os usuários favoritam, comentam e conversam no chat.',
+    role: 'Frontend em Vue e parte da API em Django.',
+    highlights: [
+      'Cadastro separado para usuário e empresa, com JWT',
+      'Filtros por categoria, data e nota',
+      'Chat em tempo real',
+    ],
+    stack: ['Vue 3', 'Django REST', 'Channels', 'JWT'],
+    live: 'https://join-ville-dusky.vercel.app/',
+    repos: [
+      { label: 'Frontend', name: 'Equipe-Hackaton/Join-ville' },
+      { label: 'Backend', name: 'Equipe-Hackaton/backend-hackaton' },
+    ],
+    image: { src: '/images/joinville.webp', alt: 'Página inicial do Join-Ville, com um carrossel de eventos e a lista de festas e shows.' },
+  },
+  {
+    id: 'sede-do-medo',
+    name: 'Sede do Medo',
+    year: 2025,
+    kind: 'Projeto Integrador',
+    summary:
+      'Catálogo de filmes de terror com busca, detalhes, trailer, favoritos e histórico, consumindo a API do TMDB.',
+    role: 'Desenvolvimento do frontend, da busca ao player de trailers.',
+    highlights: ['Busca e filtros sobre a API do TMDB', 'Favoritos e histórico guardados no navegador'],
+    stack: ['Vue 3', 'Pinia', 'Axios', 'TMDB API'],
+    live: 'https://sededomedopi.vercel.app/',
+    repos: [{ label: 'Código', name: 'Equipe-Hackaton/pi_SededoMedo' }],
+    image: { src: '/images/sededomedo.webp', alt: 'Página inicial do Sede do Medo, com filmes de terror em destaque.' },
+  },
+  {
+    id: 'hackathon-ifc',
+    name: 'Plataforma do Hackathon IFC',
+    year: 2026,
+    kind: 'Fábrica de Software',
+    summary:
+      'Sistema para organizar o hackathon do IFC: edições, inscrições, equipes, envio e avaliação de projetos.',
+    role: 'Telas e componentes do frontend: menu lateral, paginação, seletores e cadastro de projetos.',
+    highlights: ['Menu lateral com itens que mudam conforme o login', 'Componentes reutilizáveis em TypeScript'],
+    stack: ['Vue 3', 'TypeScript', 'Vuetify'],
+    repos: [{ label: 'Frontend', name: 'fabricadesoftware-ifc/fabricaHackathon_frontEnd' }],
+  },
+]
 
-  // ========== TIMELINE DE ATIVIDADES ==========
-  timeline: {
-    '2024-02': 'Início no GitHub - Primeiro commit',
-    '2024-10-27': 'Projeto Nutiverso (Primeiro projeto em grupo)',
-    '2025-10-27': 'Tutorial TMDB (Aprendizado de APIs)',
-    '2025-09-22': 'Maior streak - 5 dias consecutivos',
-    '2025-12-02': 'Sede do Medo - Projeto com API tmdb',
-    '2025-11-18': 'Artelie - Primeiro projeto freelance',
-    '2025-12-05': 'MetFlix - Projeto fullstack completo',
-    '2025-09-25': 'Join-Ville - Hackaton IFC',
-  }
-}
+export const clientWork = [
+  {
+    id: 'ramon',
+    name: 'Ramon Autopeças',
+    year: 2026,
+    kind: 'Cliente real',
+    summary:
+      'Vitrine digital de uma loja de autopeças. O catálogo é sincronizado com a loja oficial no Mercado Livre e o cliente é levado ao WhatsApp para negociar.',
+    role: 'Desenvolvimento do frontend, a vitrine em Vue.',
+    stack: ['Vue 3', 'Pinia', 'Vite'],
+    live: 'https://ramonautopecas.com.br/',
+    docs: 'https://github.com/Ramon-Autopecas/.github',
+  },
+  {
+    id: 'metflix',
+    name: 'MetFlix',
+    year: 2025,
+    kind: 'Freela',
+    summary:
+      'Plataforma de streaming com autenticação. Amigos me contrataram para terminar o projeto e tive grande participação no desenvolvimento.',
+    role: 'Finalização do frontend e da integração com a API.',
+    stack: ['Vue.js', 'JWT'],
+    live: 'https://metflix-frontend-pi.vercel.app/',
+    image: { src: '/images/metflix.webp', alt: 'Página inicial do MetFlix, com o catálogo de filmes.' },
+  },
+  {
+    id: 'artelie',
+    name: 'Artelie',
+    year: 2025,
+    kind: 'Freela',
+    summary:
+      'Refatoração completa do frontend de um projeto de amigos, com foco em experiência de uso e interface.',
+    role: 'Reescrita do frontend.',
+    stack: ['Vue.js', 'CSS'],
+    live: 'https://artelieweb.web.app/',
+    image: { src: '/images/artelie.webp', alt: 'Página inicial do Artelie.' },
+  },
+]
+
+export const studyProjects = [
+  {
+    name: 'NutriVita',
+    text: 'site institucional de uma clínica de nutrição, em HTML, CSS e JavaScript',
+    repo: 'https://github.com/arthurlanz/nutriverso_pi',
+  },
+  {
+    name: 'Tutorial TMDB',
+    text: 'filmes e séries por gênero com Vue 3 e a API do TMDB',
+    live: 'https://tutorial-tmdb-wheat-sigma.vercel.app/',
+    repo: 'https://github.com/arthurlanz/tutorial-tmdb',
+  },
+]
+
+export const stack = [
+  { label: 'Interface', items: ['Vue 3', 'Pinia', 'Vue Router', 'Vite', 'JavaScript', 'TypeScript', 'HTML e CSS', 'PWA', 'Vuetify'] },
+  { label: 'API e dados', items: ['Python', 'Django', 'Django REST Framework', 'JWT (SimpleJWT)', 'Channels (WebSocket)', 'PostgreSQL', 'MySQL', 'SQLite'] },
+  { label: 'Integrações e entrega', items: ['Mercado Pago', 'Login com Google', 'Cloudinary', 'Vercel', 'Render'] },
+  { label: 'Dia a dia em equipe', items: ['Git e GitHub', 'Branches e pull requests', 'Issues e Kanban', 'Revisão de código', 'Figma'] },
+]
+
+export const journey = [
+  { year: 2024, text: 'Começo do técnico em Informática para Internet no IFC Campus Araquari e da minha conta no GitHub.' },
+  { year: 2025, text: 'Primeiro hackathon do IFC (Join-Ville), primeiros projetos integradores e os trabalhos para amigos (Artelie e MetFlix).' },
+  { year: 2026, text: 'TCC (Pires Panificadora), hackathon com o Fluxo, a vitrine da Ramon Autopeças e a conclusão do curso.' },
+]

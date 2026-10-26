@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="pt-BR">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arthur Lanznaster - Dev em Formação</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arthur Lanznaster, dev fullstack em Joinville</title>
+    <meta name="description" content="Dev fullstack com Vue 3 e Django REST em Joinville, SC. Projetos reais, atividade ao vivo do GitHub e contato para estágio ou vaga júnior." />
+    <meta name="theme-color" content="#0f1f33" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Arthur Lanznaster, dev fullstack" />
+    <meta property="og:description" content="Sistemas web completos, do banco de dados à tela. Vue 3 e Django REST." />
+    <meta property="og:url" content="https://arthurlanznaster.vercel.app/" />
+    <meta property="og:image" content="https://arthurlanznaster.vercel.app/images/og.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Define o tema antes da primeira pintura, para a página não piscar.
+      ;(function () {
+        var theme
+        try {
+          theme = localStorage.getItem('tema')
+        } catch (e) {}
+        if (theme !== 'dark' && theme !== 'light') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        document.documentElement.dataset.theme = theme
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>
