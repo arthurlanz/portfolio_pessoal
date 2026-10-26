@@ -34,6 +34,7 @@ export const projects = [
     ],
     stack: ['Vue 3', 'Pinia', 'PWA', 'Django REST', 'PostgreSQL', 'Cloudinary'],
     live: 'https://frontend-pires.vercel.app',
+    image: { src: '/images/pires.webp', alt: 'Início do app da Pires Panificadora, com destaques do cardápio e menu lateral.' },
     repos: [
       { label: 'Frontend', name: 'Panificadora-Pires/frontend-pires' },
       { label: 'Backend', name: 'Panificadora-Pires/backend-pires' },
@@ -55,6 +56,7 @@ export const projects = [
     ],
     stack: ['Vue 3', 'Pinia', 'Django REST', 'Channels (WebSocket)', 'JWT'],
     live: 'https://fluxo-beige-three.vercel.app',
+    image: { src: '/images/fluxo.webp', alt: 'Tela inicial do Fluxo, com os projetos do usuário, progresso e convites.' },
     repos: [
       { label: 'Frontend', name: 'DreamTeam-2k26/frontend' },
       { label: 'Backend', name: 'DreamTeam-2k26/backend' },
@@ -75,6 +77,7 @@ export const projects = [
     ],
     stack: ['Vue 3', 'Pinia', 'PWA', 'Django REST', 'PostgreSQL', 'Cloudinary'],
     live: 'https://brookie-frontend.vercel.app/',
+    image: { src: '/images/brookie.webp', alt: 'Tela de login do Brookiê no celular.' },
     repos: [
       { label: 'Frontend', name: 'EquipePI-3info2/frontend' },
       { label: 'Backend', name: 'EquipePI-3info2/backend' },
@@ -140,6 +143,7 @@ export const clientWork = [
     role: 'Desenvolvimento do frontend, a vitrine em Vue.',
     stack: ['Vue 3', 'Pinia', 'Vite'],
     live: 'https://ramonautopecas.com.br/',
+    image: { src: '/images/ramon.webp', alt: 'Vitrine da Ramon Autopeças, com a oferta da semana e o botão do WhatsApp.' },
     docs: 'https://github.com/Ramon-Autopecas/.github',
   },
   {
@@ -169,11 +173,6 @@ export const clientWork = [
 ]
 
 export const studyProjects = [
-  {
-    name: 'NutriVita',
-    text: 'site institucional de uma clínica de nutrição, em HTML, CSS e JavaScript',
-    repo: 'https://github.com/arthurlanz/nutriverso_pi',
-  },
   {
     name: 'Tutorial TMDB',
     text: 'filmes e séries por gênero com Vue 3 e a API do TMDB',
