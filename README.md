@@ -1,197 +1,65 @@
-# Portfolio Frontend
-
-Portfolio pessoal desenvolvido com React e Vite, apresentando projetos, habilidades e informações de contato de forma interativa e moderna.
-
-## 🚀 Tecnologias
-
-- React 18.3
-- Vite 6.0 (bundler)
-- React Router DOM 7.1 (navegação)
-- Axios (requisições HTTP)
-- CSS3 (estilização)
-- React Icons (ícones)
-
-## ✨ Features
-
-- 🎨 Design moderno e responsivo
-- 🌙 Navegação suave entre seções
-- 📱 Totalmente responsivo (mobile-first)
-- 💼 Showcase de projetos
-- 🛠️ Exibição de habilidades técnicas
-- 📧 Formulário de contato funcional
-- ⚡ Carregamento rápido com Vite
-- 🔒 Rate limiting no formulário de contato
-
-## 📋 Pré-requisitos
-
-- Node.js 18+
-- npm ou yarn
-
-## 🔧 Instalação Local
-
-**1. Clone o repositório**
-
-    git clone https://github.com/arthurlanznaster/portfolio-frontend.git
-    cd portfolio-frontend
-
-**2. Instale as dependências**
-
-    npm install
-
-**3. Configure as variáveis de ambiente**
-
-Crie um arquivo `.env` na raiz do projeto:
-
-    VITE_API_URL=http://localhost:8000/api
-
-**4. Inicie o servidor de desenvolvimento**
-
-    npm run dev
-
-O aplicativo estará disponível em http://localhost:5173
-
-## 🏗️ Build para Produção
-
-    npm run build
-
-Os arquivos otimizados estarão na pasta `dist/`
-
-**Preview da build:**
-
-    npm run preview
-
-## 🗂️ Estrutura do Projeto
-
-    portfolio-frontend/
-    ├── public/                # Arquivos públicos estáticos
-    ├── src/
-    │   ├── assets/           # Imagens, fontes, etc
-    │   ├── components/       # Componentes React
-    │   ├── styles/           # Arquivos CSS
-    │   ├── App.jsx           # Componente principal
-    │   ├── main.jsx          # Entry point
-    │   └── index.css         # CSS global
-    ├── .env                  # Variáveis de ambiente
-    ├── index.html            # HTML principal
-    ├── package.json          # Dependências
-    ├── vite.config.js        # Configuração do Vite
-    └── README.md             # Este arquivo
-
-## 📱 Componentes
-
-### Navbar
-Barra de navegação fixa com links suaves para as seções.
-
-### Hero
-Seção de apresentação inicial com informações principais.
-
-### About
-Informações sobre experiência, objetivos e biografia.
-
-### Skills
-Grid com habilidades técnicas organizadas por categoria (Frontend, Backend, Ferramentas & DevOps).
-
-### Projects
-Showcase de projetos com descrição, tecnologias utilizadas e links para GitHub e demo.
-
-### Education
-Formação acadêmica e cursos relevantes.
-
-### Contact
-Formulário de contato com validação, rate limiting (5 mensagens/hora), feedback visual e integração com backend.
-
-### Footer
-Rodapé com informações de copyright e links sociais.
-
-## 🎨 Customização
-
-### Cores
-
-As cores principais podem ser alteradas em `src/index.css` na seção `:root`.
-
-### Conteúdo
-
-Edite os componentes em `src/components/` para alterar informações pessoais, projetos, habilidades e formação acadêmica.
-
-## 🌐 Integração com API
-
-O formulário de contato se comunica com a API backend no endpoint `/api/contact/send/`
-
-Configure a URL da API no arquivo `.env`:
-
-    VITE_API_URL=https://sua-api.com/api
-
-## 🚀 Deploy
-
-### Vercel
-
-    npm install -g vercel
-    vercel
-
-### Netlify
-
-    npm run build
-    netlify deploy --prod --dir=dist
-
-**Importante:** Configure a variável de ambiente `VITE_API_URL` com a URL da API em produção.
-
-## 📊 Performance
-
-- ⚡ Lighthouse Score: 95+
-- 📦 Bundle size otimizado com Vite
-- 🖼️ Lazy loading de imagens
-- 🎯 Code splitting automático
-
-## 🛡️ Segurança
-
-- Validação de formulários no frontend e backend
-- Rate limiting no envio de mensagens
-- Sanitização de inputs
-- HTTPS obrigatório em produção
-
-## 📱 Responsividade
-
-**Breakpoints:**
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
-
-## 🧪 Scripts Disponíveis
-
-    npm run dev          # Inicia servidor de desenvolvimento
-    npm run build        # Build para produção
-    npm run preview      # Preview da build
-    npm run lint         # Linting do código
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT.
-
-## 👤 Autor
-
-**Arthur Lanznaster**
-
-- GitHub: [@arthurlanznaster](https://github.com/arthurlanz)
-- Email: arthurlanznaster@gmail.com
-
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas!
-
-1. Fazer fork do projeto
-2. Criar uma branch: `git checkout -b feature/MinhaFeature`
-3. Commit: `git commit -m 'Add: Nova feature'`
-4. Push: `git push origin feature/MinhaFeature`
-5. Abrir um Pull Request
-
-## 🐛 Reportar Bugs
-
-Encontrou um bug? Abra uma issue descrevendo:
-- O comportamento esperado
-- O comportamento atual
-- Passos para reproduzir
-- Screenshots (se aplicável)
-
----
-
-Desenvolvido por Arthur Lanznaster
+# Portfólio Pessoal · Frontend
+
+Portfólio pessoal de Arthur Lanznaster, feito em **Vue 3 + Vite**. Reúne apresentação, habilidades, formação, projetos e um formulário de contato integrado à [API do portfólio](https://github.com/arthurlanz/portfolio-backend).
+
+🔗 **Online:** [arthurlanznaster.vercel.app](https://arthurlanznaster.vercel.app/)
+
+## Tecnologias
+
+- Vue 3 (Composition API)
+- Vite
+- Vue Router
+- Pinia
+- Lucide Icons
+- CSS puro com animações
+- ESLint + Prettier
+- Deploy na Vercel
+
+## Funcionalidades
+
+- Layout responsivo com seções de apresentação, sobre, habilidades, formação, projetos e contato
+- Animações ao rolar a página, efeito parallax, rastro do mouse e fundo de partículas interativo (composables próprios)
+- Conteúdo centralizado em `src/data/portfolio.js`, o que facilita atualizar projetos e habilidades
+- Formulário de contato que envia mensagens para a API Django ([portfolio-backend](https://github.com/arthurlanz/portfolio-backend)), com o limite de envios aplicado no servidor
+
+## Como rodar
+
+Requisitos: Node.js `^20.19.0` ou `>=22.12.0`.
+
+```bash
+git clone https://github.com/arthurlanz/portfolio_pessoal.git
+cd portfolio_pessoal
+npm install
+npm run dev
+```
+
+A aplicação sobe em `http://localhost:5173`.
+
+### Scripts
+
+| Comando | O que faz |
+|---|---|
+| `npm run dev` | Servidor de desenvolvimento |
+| `npm run build` | Build de produção em `dist/` |
+| `npm run preview` | Pré-visualiza o build |
+| `npm run lint` | ESLint com correção automática |
+| `npm run format` | Formata `src/` com Prettier |
+
+## Estrutura
+
+```
+src/
+├── assets/styles/     # CSS global
+├── components/        # Seções da página (Hero, About, Skills, Projects, Education, Contact...)
+├── composables/       # Efeitos: parallax, scroll, mouse trail, efeito magnético
+├── data/portfolio.js  # Informações pessoais, habilidades e projetos
+├── router/            # Rotas
+├── stores/            # Pinia
+├── views/HomeView.vue
+├── App.vue
+└── main.js
+```
+
+## Autor
+
+**Arthur Lanznaster** · [GitHub](https://github.com/arthurlanz) · [LinkedIn](https://www.linkedin.com/in/arthur-lanznaster-0546532b8) · arthurlanznaster@gmail.com
