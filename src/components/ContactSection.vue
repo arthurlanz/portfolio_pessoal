@@ -2,6 +2,7 @@
 import { reactive, ref } from 'vue'
 import SectionShell from './SectionShell.vue'
 import { profile } from '../data/portfolio'
+import { fieldHint, limits, validateField, validateForm } from '../utils/contactRules'
 
 const API = (import.meta.env.VITE_API_URL || 'https://portfolio-backend-7w30.onrender.com/api').replace(/\/$/, '')
 
@@ -12,12 +13,24 @@ const feedback = ref('')
 
 const labels = { name: 'Nome', email: 'E-mail', subject: 'Assunto', message: 'Mensagem' }
 
+const touched = reactive({})
+
+/** Valida um campo ao sair dele e, depois do primeiro aviso, a cada tecla. */
+function checkField(key) {
+  touched[key] = true
+  const message = validateField(key, form[key])
+  if (message) errors[key] = message
+  else delete errors[key]
+}
+
+function onInput(key) {
+  if (touched[key]) checkField(key)
+}
+
 function validate() {
   Object.keys(errors).forEach((key) => delete errors[key])
-  for (const key of Object.keys(labels)) {
-    if (!form[key].trim()) errors[key] = `Preencha o campo ${labels[key].toLowerCase()}.`
-  }
-  if (!errors.email && !/^\S+@\S+\.\S+$/.test(form.email.trim())) errors.email = 'Digite um e-mail válido, como nome@exemplo.com.'
+  Object.assign(errors, validateForm(form))
+  Object.keys(labels).forEach((key) => (touched[key] = true))
   return Object.keys(errors).length === 0
 }
 
@@ -39,6 +52,8 @@ async function submit() {
       status.value = 'sent'
       feedback.value = 'Mensagem enviada. Respondo no e-mail que você informou.'
       Object.keys(form).forEach((key) => (form[key] = ''))
+      Object.keys(touched).forEach((key) => delete touched[key])
+      Object.keys(errors).forEach((key) => delete errors[key])
       return
     }
     status.value = 'failed'
@@ -74,10 +89,13 @@ async function submit() {
             :type="field === 'email' ? 'email' : 'text'"
             :autocomplete="field === 'name' ? 'name' : field === 'email' ? 'email' : 'off'"
             :aria-invalid="Boolean(errors[field])"
-            :aria-describedby="errors[field] ? `erro-${field}` : undefined"
+            :aria-describedby="errors[field] ? `erro-${field}` : field === 'subject' ? 'dica-subject' : undefined"
             maxlength="300"
+            @blur="checkField(field)"
+            @input="onInput(field)"
           />
           <p v-if="errors[field]" :id="`erro-${field}`" class="form__error">{{ errors[field] }}</p>
+          <p v-else-if="field === 'subject'" id="dica-subject" class="form__hint">{{ fieldHint('subject', form.subject) }}</p>
         </div>
         <div class="form__field">
           <label for="campo-message">{{ labels.message }}</label>
@@ -86,9 +104,13 @@ async function submit() {
             v-model="form.message"
             rows="6"
             :aria-invalid="Boolean(errors.message)"
-            :aria-describedby="errors.message ? 'erro-message' : undefined"
+            :maxlength="limits.message.max"
+            :aria-describedby="errors.message ? 'erro-message' : 'dica-message'"
+            @blur="checkField('message')"
+            @input="onInput('message')"
           />
           <p v-if="errors.message" id="erro-message" class="form__error">{{ errors.message }}</p>
+          <p v-else id="dica-message" class="form__hint">{{ fieldHint('message', form.message) }}</p>
         </div>
         <div class="form__submit">
           <button class="button button--solid" type="submit" :disabled="status === 'sending'">
@@ -158,6 +180,12 @@ async function submit() {
   border-color: var(--danger);
 }
 
+.form__hint {
+  min-height: 1.4em;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
 .form__error {
   color: var(--danger);
   font-size: var(--step--1);
@@ -198,9 +226,9 @@ async function submit() {
   overflow-wrap: anywhere;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 75rem) {
   .contact {
-    grid-template-columns: minmax(0, 36rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 36rem) minmax(14rem, 1fr);
     gap: var(--space-5);
   }
 }
