@@ -76,7 +76,6 @@ export const projects = [
       'Deploy do backend no Render, com PostgreSQL',
     ],
     stack: ['Vue 3', 'Pinia', 'PWA', 'Django REST', 'PostgreSQL', 'Cloudinary'],
-    live: 'https://brookie-frontend.vercel.app/',
     image: { src: '/images/brookie.webp', alt: 'Tela de login do Brookiê no celular.' },
     repos: [
       { label: 'Frontend', name: 'EquipePI-3info2/frontend' },
@@ -97,7 +96,6 @@ export const projects = [
       'Chat em tempo real',
     ],
     stack: ['Vue 3', 'Django REST', 'Channels', 'JWT'],
-    live: 'https://join-ville-dusky.vercel.app/',
     repos: [
       { label: 'Frontend', name: 'Equipe-Hackaton/Join-ville' },
       { label: 'Backend', name: 'Equipe-Hackaton/backend-hackaton' },
